@@ -8,4 +8,48 @@ navbar {
     background-color: #000000;
     color: #FFFFFF;
     align-items: center;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+    overflow: hidden;
+
+}
+
+li {
+    float: left;
+    display: block;
+    padding: 8px;
+    font-family: "Open Sans", Verdana, sans;
+    font-size: 1.1em;
+}
+
+#logo {
+    display: block;
+    width: 40%;
+    height: auto;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.menuButton {
+    appearance: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    background-color: #000000;
+    padding: 20px;
+    border-width: 0;
+    white-space: nowrap;
+}
+
+.menuButton:hover {
+    color: #FF0000;
+    text-decoration: underline;
+
 }
