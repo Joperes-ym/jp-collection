@@ -7,12 +7,15 @@
 navbar {
     display: flex;
     justify-content: space-around;
-    background-color: #000000;
+    background-color: red;
     color: #FFFFFF;
     align-items: center;
-    position: fixed;
+   /* position: fixed; */
     overflow: hidden;
     width: 100%;
+    height: 20px;
+    top: 0;
+   /* z-index: 10; */
 }
 
 ul {
@@ -41,6 +44,10 @@ li {
     cursor: pointer;
 }
 
+#logoMobile {
+    display: none;
+}
+
 .menuButton {
     appearance: none;
     color: #FFFFFF;
@@ -55,4 +62,9 @@ li {
     color: #FF0000;
     text-decoration: underline;
 
+}
+
+header h1 {
+    padding-top: 50px;
+    margin: 20% 30%;
 }
