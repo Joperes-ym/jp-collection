@@ -4,7 +4,7 @@ require_once 'functions.php';
 
 $db = createDbConn();
 $cards = getAllCards($db);
-
+$cardhtml = displayCard($cards);
 ?>
 
 <!DOCTYPE html>
@@ -21,15 +21,22 @@ $cards = getAllCards($db);
         <a href="#"><img src="img/logo.png" id="logo"></a>
         <div>
             <ul>
-                <li><button class="menuButton">MY COLLECTION</button></li>
-                <li><button class="menuButton">ADD TO COLLECTION</button></li>
+                <li><a href="#myCollection" ><button type="button" class="menuButton">MY COLLECTION</button></a></li>
             </ul>
         </div>
     </navbar>
-    <header>
+    <header id="home">
+        <div id="intro">
             <h1>Welcome to my Magic: The Gathering Collection</h1>
-            <p>Magic: The Gathering, also Magic or MTG, is a strategy card game created in 1993 and holds the title of "Most Played Trading Card Game". Magic is not a single game but rather a game system that shares a set of rules and game components (mainly cards). It can be played in many different formats.</p>
+            <p>Magic: The Gathering, also Magic or MTG, is a strategy card game created in 1993 and holds the title of "Most Played Trading Card Game".<br>Magic is not a single game but rather a game system that shares a set of rules and game components (mainly cards). It can be played in many different formats.</p>
             <p>There are currently more than 20,000 unique Magic cards, to which hundreds are added each year.</p>
+        </div>
     </header>
+    <main id="myCollection">
+        <h1>My Collection</h1>
+        <section id="myCollectionSec">
+            <?php echo $cardhtml; ?>
+        </section>
+    </main>
 </body>
 </html>
