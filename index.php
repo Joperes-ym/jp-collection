@@ -14,7 +14,7 @@ $cardhtml = displayCard($cards);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Collection</title>
     <link rel="stylesheet" type="text/css" href="normalize.css" >
-    <link rel="stylesheet"  href="styles.css" >
+    <link rel="stylesheet" type="text/css"  href="styles.css" >
 </head>
 <body>
     <navbar>

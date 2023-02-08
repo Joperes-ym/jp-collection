@@ -30,11 +30,16 @@ function getAllCards(PDO $db): array
  * @param $cards multidimensional array of cards
  * @return string to output
  */
-function displayCard($cards)
+function displayCard(array $cards) : string
 {
     $result='';
     foreach ($cards as $card) {
-        $result .= '<article>
+        if (array_key_exists('img_url', $card)
+            && array_key_exists('name', $card)
+            && array_key_exists('type_line', $card)
+            && array_key_exists('mana', $card)
+            && array_key_exists('rarity', $card)) {
+            $result .= '<article>
                         <div class="cardSection">
                             <div class="imageSection">
                               <img src="' . $card['img_url'] . '" class="image"/>
@@ -47,6 +52,7 @@ function displayCard($cards)
                             </div>
                         </div>
                     </article>';
+        }
     }
     return $result;
 }
