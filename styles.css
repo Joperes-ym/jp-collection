@@ -127,6 +127,33 @@ main h1 {
     padding-top: 50px;
 }
 
+footer {
+    padding-top: 200px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 200px;
+}
+
+#submit {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    border: 3px groove #000000;
+    cursor: pointer;
+}
+
+#submit:hover {
+    border: 3px groove #FF0000;
+}
 
 @media screen and (max-width: 1233px){
     #logo {
