@@ -18,7 +18,7 @@ $cardhtml = displayCard($cards);
 </head>
 <body>
     <navbar>
-        <a href="#"><img src="img/logo.png" id="logo"></a>
+        <a href="#home"><img src="img/logo.png" id="logo" alt="Home"></a>
         <div>
             <ul>
                 <li><a href="#myCollection" ><button type="button" class="menuButton">MY COLLECTION</button></a></li>
