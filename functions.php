@@ -107,3 +107,12 @@ function insertCard(PDO $db, string $name, string $type_line, string $mana, stri
     $stmnt->bindParam(':img_url', $img_url);
     $stmnt->execute();
 }
+
+//function validInput($name, $type_line, $mana, $rarity, img_url)
+//{
+//    $name = preg_match(/^[a - zA - Z0 - 9_] + ([a - zA - Z0 - 9_] +) * $/, $name);
+//    $type_line = preg_match(/^[a - zA - Z0 - 9_] + ([a - zA - Z0 - 9_] +) * $/, $type_line);
+//    $mana = preg_match(/^[a - zA - Z0 - 9_] + ([a - zA - Z0 - 9_] +) * $/, $mana);
+//    $rarity = preg_match(/^[a - zA - Z0 - 9_] + ([a - zA - Z0 - 9_] +) * $/, $rarity);
+//    $image_url = preg_match(/^[a - zA - Z0 - 9_] + ([a - zA - Z0 - 9_] +) * $/, $image_url);
+//}
