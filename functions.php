@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Creates a DB connection
  * @return PDO as the bd conn
@@ -55,6 +54,23 @@ function displayCard(array $cards) : string
         }
     }
     return $result;
+}
+
+function allDataPresent(array $userData): bool
+{
+    return (isset($userData['name']) && isset($userData['type_line']) && isset($userData['mana']) && isset($userData['rarity']) && isset($userData['img_url']));
+}
+
+// validation
+function validLength(string $data): bool
+{
+    return !(strlen($data) > 100);
+}
+
+function validRarity(string $rarity): bool
+{
+    $validRarityValues = ['Uncommon', 'Common', 'Rare', 'Mythic rare'];
+    return in_array($rarity, $validRarityValues);
 }
 
 

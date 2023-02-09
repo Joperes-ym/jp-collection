@@ -6,7 +6,6 @@ $db = createDbConn();
 $cards = getAllCards($db);
 $cardhtml = displayCard($cards);
 
-session_start();
 
 ?>
 
