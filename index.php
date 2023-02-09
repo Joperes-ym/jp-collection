@@ -46,11 +46,11 @@ $cardhtml = displayCard($cards);
         <section class="form">
         <form action="addCard.php" method="post">
             <label for="name">Name: </label>
-            <input id="name" type="text" name="name" placeholder="Card name..." value="" /><br>
+            <input id="name" type="text" name="name" placeholder="Card name..." value="" required /><br>
             <label for="type_line">Type: </label>
-            <input id="type_line" type="text" name="type_line" placeholder="Type of card..." value=""/><br>
+            <input id="type_line" type="text" name="type_line" placeholder="Type of card..." value="" required/><br>
             <label for="mana">Mana: </label>
-            <input id="mana" type="text" name="mana" placeholder="Mana category" value=""/><br>
+            <input id="mana" type="text" name="mana" placeholder="Mana category" value=""required/><br>
             <label for="rarity">Rarity: </label>
             <select id="rarity" name="rarity" value="">
                 <option value="Uncommon">Uncommon</option>
@@ -59,7 +59,7 @@ $cardhtml = displayCard($cards);
                 <option value="Mythic rare">Mythic rare</option>
             </select><br>
             <label for="img_url">Image URL: </label>
-            <input id="img_url" type="text" name="img_url" placeholder="Type image URL..." value=""/><br>
+            <input id="img_url" type="text" name="img_url" placeholder="Type image URL..." value="" required/><br>
             <input type="submit" id="submit" />
         </form>
             </section>

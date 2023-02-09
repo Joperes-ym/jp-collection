@@ -14,9 +14,15 @@ $mana = $userData['mana'];
 $rarity = $userData['rarity'];
 $img_url = $userData['img_url'];
 
+$input_valid = validLength($name, $type_line, $mana, $rarity, $img_url);
+
 //conditional if everything is valid echo valid
-if (validLength($name) && validLength($type_line) && validLength($mana) && validRarity($rarity) && filter_var($img_url, FILTER_VALIDATE_URL)) {
-    echo 'Valid';
+if ($input_valid === true) {
+    $db = createDbConn();
+    insertCard($db, $name, $type_line, $mana, $rarity, $img_url);
+    header("Location: index.php");
 } else {
     echo 'Invalid';
 }
+
+

@@ -88,6 +88,22 @@ function validRarity(string $rarity): bool
     $validRarityValues = ['Uncommon', 'Common', 'Rare', 'Mythic rare'];
     return in_array($rarity, $validRarityValues);
 }
-
-
-
+/**
+ * @param PDO $db
+ * @param string $name
+ * @param string $type_line
+ * @param string $mana
+ * @param string $rarity
+ * @param string $img_url
+ * @return void
+ */
+function insertCard(PDO $db, string $name, string $type_line, string $mana, string $rarity, string $img_url): void
+{
+    $stmnt = $db->prepare("INSERT INTO `cards` (`name` , `type_line`, `mana`, `rarity`, `img_url`) VALUES (:name, :type_line, :mana, :rarity, :img_url)");
+    $stmnt->bindParam(':name', $name);
+    $stmnt->bindParam(':type_line', $type_line);
+    $stmnt->bindParam(':mana', $mana);
+    $stmnt->bindParam(':rarity', $rarity);
+    $stmnt->bindParam(':img_url', $img_url);
+    $stmnt->execute();
+}
