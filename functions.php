@@ -25,6 +25,7 @@ function getAllCards(PDO $db): array
 }
 
 /**
+ *
  * display cards on html format
  * @param $cards multidimensional array of cards
  * @return string to output
@@ -56,17 +57,32 @@ function displayCard(array $cards) : string
     return $result;
 }
 
+/**
+ * verify if all data is present
+ * @param array $userData to send data
+ * @return bool returns true or false
+ */
 function allDataPresent(array $userData): bool
 {
     return (isset($userData['name']) && isset($userData['type_line']) && isset($userData['mana']) && isset($userData['rarity']) && isset($userData['img_url']));
 }
 
 // validation
+/**
+ * makes sure the string length is less than 100 characters
+ * @param string $data as a string to be checked
+ * @return bool true or false
+ */
 function validLength(string $data): bool
 {
     return !(strlen($data) > 100);
 }
 
+/**
+ * makes sure only have those strings as an option
+ * @param string $rarity
+ * @return bool
+ */
 function validRarity(string $rarity): bool
 {
     $validRarityValues = ['Uncommon', 'Common', 'Rare', 'Mythic rare'];
