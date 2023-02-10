@@ -49,4 +49,68 @@ class indexTest extends TestCase
         $case = displayCard($input);
     }
 
+
+
+    public function testSuccessAllDataPresent()
+    {
+        //expected result of the test
+        $expected = true;
+        //create the input to get the expected output
+        $input = ['name' => 'Cuthbert', 'type_line' => 'Creature', 'mana' => 'Forest', 'rarity' => 'Rare', 'img_url' => 'test.jpg'];
+        //run the real function by passing in the input and saving the output
+        $case = allDataPresent($input);
+        //compare the expected result with the actual result
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testFailureAllDataPresent()
+    {
+        $expected = '';
+        $input = [
+            ['name' => 'Cuthbert', 'type' => 'Creature', 'mana' => 'Forest', 'rarity' => 'Mythic', 'img_url' => 'test.jpg']
+        ];
+        $case = allDataPresent($input);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testSuccessValidLength()
+    {
+        //expected result of the test
+        $expected = true;
+        //create the input to get the expected output
+        $input = 'Lengendary creature';
+        //run the real function by passing in the input and saving the output
+        $case = validLength($input);
+        //compare the expected result with the actual result
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testFailureValidLength()
+    {
+        $expected = false;
+        $input = [
+            ['name' => 'Cuthbert', 'type' => 'Creature', 'mana' => 'Forest', 'rarity' => 'Mythic', 'img_url' => 'test.jpg']
+        ];
+        $case = allDataPresent($input);
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testSuccessValidRarity()
+    {
+        $expected = 'Common';
+        //create the input to get the expected output
+        $input = 'Common';
+        //run the real function by passing in the input and saving the output
+        $case = validRarity($input);
+        //compare the expected result with the actual result
+        $this->assertEquals($expected, $case);
+    }
+
+    public function testFailureValidRarity()
+    {
+        $expected = false;
+        $input = 'aaa';
+        $case = validRarity($input);
+        $this->assertEquals($expected, $case);
+    }
 }

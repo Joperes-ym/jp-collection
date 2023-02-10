@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Creates a DB connection
  * @return PDO as the bd conn
@@ -26,6 +25,7 @@ function getAllCards(PDO $db): array
 }
 
 /**
+ *
  * display cards on html format
  * @param $cards multidimensional array of cards
  * @return string to output
@@ -56,3 +56,63 @@ function displayCard(array $cards) : string
     }
     return $result;
 }
+
+/**
+ * verify if all data is present
+ * @param array $userData to send data
+ * @return bool returns true or false
+ */
+function allDataPresent(array $userData): bool
+{
+    return (isset($userData['name']) && isset($userData['type_line']) && isset($userData['mana']) && isset($userData['rarity']) && isset($userData['img_url']));
+}
+
+// validation
+/**
+ * makes sure the string length is less than 100 characters
+ * @param string $data as a string to be checked
+ * @return bool true or false
+ */
+function validLength(string $data): bool
+{
+    return !(strlen($data) > 100);
+}
+
+/**
+ * makes sure only have those strings as an option
+ * @param string $rarity
+ * @return bool
+ */
+function validRarity(string $rarity): bool
+{
+    $validRarityValues = ['Uncommon', 'Common', 'Rare', 'Mythic rare'];
+    return in_array($rarity, $validRarityValues);
+}
+/**
+ * @param PDO $db
+ * @param string $name
+ * @param string $type_line
+ * @param string $mana
+ * @param string $rarity
+ * @param string $img_url
+ * @return void
+ */
+function insertCard(PDO $db, string $name, string $type_line, string $mana, string $rarity, string $img_url): void
+{
+    $stmnt = $db->prepare("INSERT INTO `cards` (`name` , `type_line`, `mana`, `rarity`, `img_url`) VALUES (:name, :type_line, :mana, :rarity, :img_url)");
+    $stmnt->bindParam(':name', $name);
+    $stmnt->bindParam(':type_line', $type_line);
+    $stmnt->bindParam(':mana', $mana);
+    $stmnt->bindParam(':rarity', $rarity);
+    $stmnt->bindParam(':img_url', $img_url);
+    $stmnt->execute();
+}
+
+//function validInput($name, $type_line, $mana, $rarity, img_url)
+//{
+//    $name = preg_match(/^[a - zA - Z0 - 9_] + ([a - zA - Z0 - 9_] +) * $/, $name);
+//    $type_line = preg_match(/^[a - zA - Z0 - 9_] + ([a - zA - Z0 - 9_] +) * $/, $type_line);
+//    $mana = preg_match(/^[a - zA - Z0 - 9_] + ([a - zA - Z0 - 9_] +) * $/, $mana);
+//    $rarity = preg_match(/^[a - zA - Z0 - 9_] + ([a - zA - Z0 - 9_] +) * $/, $rarity);
+//    $image_url = preg_match(/^[a - zA - Z0 - 9_] + ([a - zA - Z0 - 9_] +) * $/, $image_url);
+//}

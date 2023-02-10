@@ -5,6 +5,8 @@ require_once 'functions.php';
 $db = createDbConn();
 $cards = getAllCards($db);
 $cardhtml = displayCard($cards);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +24,7 @@ $cardhtml = displayCard($cards);
         <div>
             <ul>
                 <li><a href="#myCollection" ><button type="button" class="menuButton">MY COLLECTION</button></a></li>
+                <li><a href="#addToCollection" ><button type="button" class="menuButton">ADD TO COLLECTION</button></a></li>
             </ul>
         </div>
     </navbar>
@@ -38,5 +41,28 @@ $cardhtml = displayCard($cards);
             <?php echo $cardhtml; ?>
         </section>
     </main>
+    <footer id="addToCollection">
+        <h1>Add to Collection</h1>
+        <section class="form">
+        <form action="addCard.php" method="post">
+            <label for="name">Name: </label>
+            <input id="name" type="text" name="name" placeholder="Card name..." value="" required /><br>
+            <label for="type_line">Type: </label>
+            <input id="type_line" type="text" name="type_line" placeholder="Type of card..." value="" required/><br>
+            <label for="mana">Mana: </label>
+            <input id="mana" type="text" name="mana" placeholder="Mana category" value=""required/><br>
+            <label for="rarity">Rarity: </label>
+            <select id="rarity" name="rarity" value="">
+                <option value="Uncommon">Uncommon</option>
+                <option value="Common">Common</option>
+                <option value="Rare">Rare</option>
+                <option value="Mythic rare">Mythic rare</option>
+            </select><br>
+            <label for="img_url">Image URL: </label>
+            <input id="img_url" type="text" name="img_url" placeholder="Type image URL..." value="" required/><br>
+            <input type="submit" id="submit" />
+        </form>
+            </section>
+    </footer>
 </body>
 </html>
